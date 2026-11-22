@@ -1,0 +1,103 @@
+model_list:
+  - model_name: grok-4.20
+    litellm_params:
+      model: xai/grok-4.20
+      use_xai_oauth: true
+
+  - model_name: grok-4.20-non-reasoning
+    litellm_params:
+      model: xai/grok-4.20-non-reasoning
+      use_xai_oauth: true
+
+  - model_name: grok-4.3
+    litellm_params:
+      model: xai/grok-4.3
+      use_xai_oauth: true
+
+  - model_name: grok-4.7
+    litellm_params:
+      model: xai/grok-4.7
+      use_xai_oauth: true
+
+  - model_name: claude-copilot-fable-5.2
+    litellm_params:
+      model: github_copilot/claude-fable-5.2
+      litellm_credential_name: Github Copilot
+    model_info:
+      discoverable: false
+
+  - model_name: claude-copilot-haiku-5.5
+    litellm_params:
+      model: github_copilot/claude-haiku-5.5
+      litellm_credential_name: Github Copilot
+
+  - model_name: claude-copilot-opus-5.5
+    litellm_params:
+      model: github_copilot/claude-opus-5.5
+      litellm_credential_name: Github Copilot
+
+  - model_name: claude-copilot-sonnet-5.5
+    litellm_params:
+      model: github_copilot/claude-sonnet-5.5
+      litellm_credential_name: Github Copilot
+
+  - model_name: copilot-gpt-5.3-codex
+    litellm_params:
+      model: github_copilot/gpt-5.3-codex
+      litellm_credential_name: Github Copilot
+
+  - model_name: copilot-gpt-6-luna
+    litellm_params:
+      model: github_copilot/gpt-6-luna
+      litellm_credential_name: Github Copilot
+
+  - model_name: copilot-gpt-6.1-terra
+    litellm_params:
+      model: github_copilot/gpt-6.1-terra
+      litellm_credential_name: Github Copilot
+
+  - model_name: copilot-gpt-6.2-astra
+    litellm_params:
+      model: github_copilot/gpt-6.2-astra
+      litellm_credential_name: Github Copilot
+
+  - model_name: copilot-gpt-6.2-sol
+    litellm_params:
+      model: github_copilot/gpt-6.2-sol
+      litellm_credential_name: Github Copilot
+
+  - model_name: copilot-grok-4.7
+    litellm_params:
+      model: github_copilot/grok-4.7
+      litellm_credential_name: Github Copilot
+    model_info:
+      discoverable: false
+
+  - model_name: copilot-kimi-k3
+    litellm_params:
+      model: github_copilot/kimi-k3
+      litellm_credential_name: Github Copilot
+
+  - model_name: copilot-mai-code-2
+    litellm_params:
+      model: github_copilot/mai-code-2
+      litellm_credential_name: Github Copilot
+
+  - model_name: copilot-mai-code-2-flash
+    litellm_params:
+      model: github_copilot/mai-code-2-flash
+      litellm_credential_name: Github Copilot
+
+router_settings:
+  num_retries: 2
+  timeout: 300
+  allowed_fails: 3
+  cooldown_time: 30
+  fallbacks:
+    - copilot-gpt-6.2-sol:
+        - claude-copilot-opus-5.5
+        - grok-4.7
+    - copilot-mai-code-2-flash:
+        - grok-4.20-non-reasoning
+    - copilot-gpt-5.3-codex:
+        - copilot-gpt-6-luna

@@ -1,0 +1,55 @@
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+xai_oauth/
+**/auth.json
+**/credentials.json
+*.token
+*.secret
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local database state
+postgres_data/
+*.sqlite
+*.sqlite3
+*.db
+
+# Generated caches and temporary files
+.tmp/
+.cache/
+*.log
+logs/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Docker / Compose overrides
+docker-compose.override.yaml
+docker-compose.override.yml
+*.local
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
